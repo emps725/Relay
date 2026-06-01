@@ -1,0 +1,25 @@
+{
+  "name": "relay",
+  "version": "1.0.0",
+  "description": "A chat application",
+  "keywords": [
+    "chat",
+    "app"
+  ],
+  "license": "ISC",
+  "author": "Anubhav Mandal",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon ./src/index.js",
+    "start": "node ./src/index.js"
+  },
+  "dependencies": {
+    "bcrypt": "^6.0.0",
+    "dotenv": "^17.4.2",
+    "express": "^5.2.1",
+    "jsonwebtoken": "^9.0.3",
+    "mongoose": "^8.23.1",
+    "nodemon": "^3.1.14"
+  }
+}
