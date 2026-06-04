@@ -11,7 +11,9 @@ app.get("/", (req, res) => {
 });
 
 import authRouter from "./routes/auth.routes.js";
+import messageRouter from "./routes/msg.routes.js";
 
 app.use("/api/v1/auth", authRouter);
+app.use("/api/v1/messages", messageRouter);
 
 export default app;
