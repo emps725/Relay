@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { loginUser } from "../services/authServices.ts";
 
 function Auth() {
   const [mode, setMode] = useState<"login" | "register">("login");
@@ -72,8 +73,11 @@ function Auth() {
         )}
         <button
           className="border p-1"
-          onClick={() => {
-            if (mode === "login") console.log(login, password);
+          onClick={async () => {
+            if (mode === "login") {
+              const data = await loginUser(login, password);
+              console.log(data);
+            }
             if (mode === "register") console.log(username, email, password);
           }}
         >
