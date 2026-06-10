@@ -5,5 +5,6 @@ export const loginUser = async (login: string, password: string) => {
     login,
     password,
   });
+  localStorage.setItem("accessToken", response.data.accessToken);
   return response.data;
 };

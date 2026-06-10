@@ -1,7 +1,10 @@
 import { useState } from "react";
 import { loginUser } from "../services/authServices.ts";
+import { checkAuth } from "../services/jwtCheck.ts";
+import { useNavigate } from "react-router-dom";
 
 function Auth() {
+  const navigate = useNavigate();
   const [mode, setMode] = useState<"login" | "register">("login");
   const [login, setLogin] = useState("");
   const [username, setUsername] = useState("");
@@ -77,6 +80,10 @@ function Auth() {
             if (mode === "login") {
               const data = await loginUser(login, password);
               console.log(data);
+              const jwtData = await checkAuth();
+              console.log(jwtData);
+              alert("Login successful");
+              navigate("/chat");
             }
             if (mode === "register") console.log(username, email, password);
           }}
