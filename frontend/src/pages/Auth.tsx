@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { loginUser } from "../services/authServices.ts";
+import { loginUser, registerUser } from "../services/authServices.ts";
 import { checkAuth } from "../services/jwtCheck.ts";
 import { useNavigate } from "react-router-dom";
 
@@ -83,9 +83,13 @@ function Auth() {
               const jwtData = await checkAuth();
               console.log(jwtData);
               alert("Login successful");
-              navigate("/chat");
+              navigate("/home");
             }
-            if (mode === "register") console.log(username, email, password);
+            if (mode === "register") {
+              const data = await registerUser(username, email, password);
+              console.log(data);
+              alert("Registered successfully.");
+            }
           }}
         >
           Submit
