@@ -79,4 +79,47 @@ const loginUser = async (req, res) => {
   }
 };
 
-export { registerUser, loginUser };
+const getUsers = async (req, res) => {
+  try {
+    const users = await User.find(
+      {
+        _id: { $ne: req.user._id },
+      },
+      "username",
+    );
+
+    return res.status(200).json({
+      message: "Users fetched successfully",
+      data: users,
+    });
+  } catch (error) {
+    return res.status(500).json({
+      message: error.message,
+    });
+  }
+};
+
+const getUserById = async (req, res) => {
+  try {
+    const { userId } = req.params;
+
+    const user = await User.findById(userId, "username"); //!!!!!!add avatar and bio later
+
+    if (!user) {
+      return res.status(404).json({
+        message: "User not found.",
+      });
+    }
+
+    return res.status(200).json({
+      message: "User fetched successfully.",
+      data: user,
+    });
+  } catch (error) {
+    return res.status(500).json({
+      message: error.message,
+    });
+  }
+};
+
+export { registerUser, loginUser, getUsers, getUserById };
