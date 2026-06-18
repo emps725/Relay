@@ -79,6 +79,7 @@ const loginUser = async (req, res) => {
   }
 };
 
+//get all users
 const getUsers = async (req, res) => {
   try {
     const users = await User.find(
@@ -99,6 +100,7 @@ const getUsers = async (req, res) => {
   }
 };
 
+//get single user info
 const getUserById = async (req, res) => {
   try {
     const { userId } = req.params;
