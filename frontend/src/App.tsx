@@ -1,6 +1,7 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
-import Auth from "./pages/Auth";
+// import Auth from "./pages/Auth";
+import AuthV2 from "./pages/AuthV2";
 import Home from "./pages/Home";
 import Friends from "./pages/Friends";
 import Search from "./pages/Search";
@@ -12,7 +13,7 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Auth />} />
+        <Route path="/" element={<AuthV2 />} />
         <Route
           path="/home"
           element={
