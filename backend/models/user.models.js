@@ -23,6 +23,15 @@ const userSchema = new Schema(
       required: [true, "Password is required"],
       minlength: 6,
     },
+    avatar: {
+      type: String,
+      default: "https://placehold.co/600x400",
+    },
+    bio: {
+      type: String,
+      maxlength: 200,
+      default: "No bio yet.",
+    },
   },
   {
     timestamps: true,

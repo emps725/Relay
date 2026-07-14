@@ -105,7 +105,7 @@ const getUserById = async (req, res) => {
   try {
     const { userId } = req.params;
 
-    const user = await User.findById(userId, "username"); //!!!!!!add avatar and bio later
+    const user = await User.findById(userId, "username avatar bio"); //!!!!!!add avatar and bio later
 
     if (!user) {
       return res.status(404).json({

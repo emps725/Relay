@@ -17,16 +17,15 @@ function AuthV2() {
   const handleSubmit = async () => {
     try {
       if (mode === "login") {
-        setPassword("");
         await loginUser(login, password);
 
         await checkAuth();
 
         navigate("/home");
+        setPassword("");
       }
 
       if (mode === "register") {
-        setPassword("");
         await registerUser(username, email, password);
 
         alert("Registered successfully.");
